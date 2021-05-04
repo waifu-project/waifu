@@ -1,0 +1,73 @@
+{
+	"name": "waifu",
+	"displayName": "二次元老婆鼓励师",
+	"description": "",
+	"version": "0.0.1",
+	"icon": "logo.png",
+	"publisher": "waifuproject",
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"waifu",
+		"鼓励师"
+],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"properties": {
+				"waifu.reminderViewIntervalInMinutes": {
+					"type": "number",
+					"default": 15,
+					"description": "展示提醒页面的时间间隔（分钟）"
+				},
+				"waifu.textUseHitokoto": {
+					"type": "boolean",
+					"default": false,
+					"description": "文字内容是否使用一言"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "waifu.showUI",
+				"title": "[waifu] 显示界面"
+			},
+			{
+				"command": "waifu.changeTexts",
+				"title": "[waifu] 修改文字内容"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.20.11",
+		"@types/node-fetch": "^2.5.10",
+		"@types/vscode": "^1.55.0",
+		"@typescript-eslint/eslint-plugin": "^4.14.1",
+		"@typescript-eslint/parser": "^4.14.1",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"node-fetch": "^2.6.1"
+	}
+}
